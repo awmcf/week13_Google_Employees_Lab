@@ -17,10 +17,10 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class GoogleEmployeesApplicationTests {
 
 	@Autowired
-	EmployeeRepository employeeRepository;
+	DepartmentRepository departmentRepository;
 
 	@Autowired
-	DepartmentRepository departmentRepository;
+	EmployeeRepository employeeRepository;
 
 	@Autowired
 	ProjectRepository projectRepository;
@@ -47,16 +47,14 @@ public class GoogleEmployeesApplicationTests {
 		Employee employee1 = new Employee("Jonas", "McShady", 7, department);
 		employeeRepository.save(employee1);
 
-		department.addEmployee(employee1);
-		departmentRepository.save(department);
-
 		Project project1 = new Project("Operation Brainworm", 400);
 		projectRepository.save(project1);
 
+		department.addEmployee(employee1);
+		departmentRepository.save(department);
+
 		project1.addEmployee(employee1);
 		projectRepository.save(project1);
-
-
 	}
 
 }

@@ -42,6 +42,9 @@ public class Project {
         this.employees = new ArrayList<>();
     }
 
+    public Project() {}
+
+
     public Long getId() {
         return this.id;
     }
