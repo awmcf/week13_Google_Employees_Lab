@@ -1,12 +1,24 @@
 package com.codeclan.googleEmployees.googleEmployees.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity
+@Table(name = "departments")
 public class Department {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column
     private String name;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "department")
     private List<Employee> employees;
 
     public Department(String name) {
